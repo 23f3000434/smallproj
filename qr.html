@@ -9,9 +9,9 @@
 <body>
     <div class="container">
         <p>Enter Your Text/Link</p>
-        <input type="text" placeholder="Type your text here" id="inputtext"></input>
+        <input type="text" placeholder="Type your text here" id="qrtext"></input>
         <div id="imgbox">
-            <img src="" alt="" id="qrImage">
+            <img src="" alt="" id="qrimage">
         </div>
         
         <button onclick="generateQR()">Generate QR code</button>
@@ -20,11 +20,18 @@
 
 <script>
     let imgbox = document.getElementById('imgbox');
-    let inputtext = document.getElementById('inputtext');
-    let qrimage = document.getElementById('qrImage')
+    let inputtext = document.getElementById('qrtext');
+    let qrimage = document.getElementById('qrimage')
 
     function generateQR(){
-        qrimage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" +inputtext.value;
+        if(inputtext.value.length > 0){
+            qrimage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" +inputtext.value;
+            imgbox.classList.add('show-img');
+        // else{
+        //     inputtext.classList.add('error');
+        // }
+        }
+        
     }
 </script>
 </body>
