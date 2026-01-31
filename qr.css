@@ -61,6 +61,13 @@ body{
     border: 1px solid;
     padding: 10px;
 }
+@keyframes shake {
+        25% { transform: translateX(4px);}
+        50% { transform: translateX(-4px);}
+        75% { transform: translateX(4px);}
+        100% { transform: translateX(0px);}
+    }
 .error{
-    
+    animation: shake 0.3s;
+    border: 1px solid red; 
 }
