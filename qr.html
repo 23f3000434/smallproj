@@ -19,9 +19,9 @@
 
 
 <script>
-    let imgbox = document.getElementById('imgbox');
-    let inputtext = document.getElementById('qrtext');
-    let qrimage = document.getElementById('qrimage')
+        let imgbox = document.getElementById('imgbox');
+        let inputtext = document.getElementById('qrtext');
+        let qrimage = document.getElementById('qrimage')
 
     function generateQR(){
         if(inputtext.value.length > 0) {
@@ -42,7 +42,7 @@
             }, delay);
         };
     }
-    inputtext.addEventListener('input', debounce(generateQR,1000));
+    inputtext.addEventListener('input', debounce(generateQR,2000));
 </script>
 </body>
 </html>
