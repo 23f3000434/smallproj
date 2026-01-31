@@ -43,24 +43,24 @@ body{
     width: 200px;
     height: 200px;
     border-radius: 5px;
-    overflow: hidden;
+    overflow:visible;
     max-height: 0;
     transition: max-height 1s;
 }
 
 #imgbox img{
-    max-height: 100%;
-    padding: 10px;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    /* object-fit: contain; */
 }
 #imgbox.show-img{
     max-height: 300px;
     margin: 10px auto;
     border: 1px solid;
-    padding-left: 20px;
+    padding: 10px;
 }
-
-#imgbox.show-img{
-    max-height: 300px;
-    margin: 10px auto;
-    border: 1px solid #d1d1d1;
+.error{
+    
 }

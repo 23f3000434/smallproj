@@ -25,14 +25,24 @@
 
     function generateQR(){
         if(inputtext.value.length > 0){
-            qrimage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" +inputtext.value;
+            qrimage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(inputtext.value);
             imgbox.classList.add('show-img');
         // else{
         //     inputtext.classList.add('error');
         // }
         }
-        
     }
+
+    function debounce(func, delay) {
+        let timer;
+        return function(...args){
+            clearTimeout(timer);
+            timer = setTimeout(() =>{
+                func.apply(this,args);
+            }, delay);
+        };
+    }
+    inputtext.addEventListener('input', debounce(generateQR,1000));
 </script>
 </body>
 </html>
