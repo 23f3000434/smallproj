@@ -14,14 +14,31 @@
             <img src="" alt="" id="qrimage">
         </div>
         
-        <button onclick="generateQR()">Generate QR code</button>
+        <button onclick="checkfirsttime()">Generate QR code</button>
     </div>
-
+    <div class="history">
+        <h3>Features I implemented in this project</h3>
+        <ul>
+            <li>Debounced API calls for performance</li>
+            <li>Input Validation with user feedback</li>
+            <li>Dynamic QR code geenration</li>
+            <li>Responsible and accessible UI</li>
+        </ul>
+    </div>
 
 <script>
         let imgbox = document.getElementById('imgbox');
         let inputtext = document.getElementById('qrtext');
-        let qrimage = document.getElementById('qrimage')
+        let qrimage = document.getElementById('qrimage');
+        var firstTime = true;
+
+    function checkfirsttime(){
+        if(firstTime){
+            generateQR()
+            firstTime=false;
+            inputtext.addEventListener('input', debounce(generateQR,1000));
+        }
+    }
 
     function generateQR(){
         if(inputtext.value.length > 0) {
@@ -29,6 +46,11 @@
             imgbox.classList.add('show-img');}
         else {
             inputtext.classList.add('error');
+            setTimeout(() => {
+                inputtext.classList.remove('error');
+            }, 500);
+            imgbox.classList.remove('show-img');
+            qrimage.src = "";
         }
         
     }
@@ -42,7 +64,7 @@
             }, delay);
         };
     }
-    inputtext.addEventListener('input', debounce(generateQR,2000));
+    
 </script>
 </body>
-</html>
+</html> 
