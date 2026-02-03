@@ -2,6 +2,22 @@ body{
     background-color: wheat;
 }
 
+@media (max-width: 600px) {
+        .container,
+    .feature-box,
+    .history {
+        position: static;
+        width: 95vw;
+        max-width: 100%;
+        margin: 16px auto;
+        left: auto;
+        right: auto;
+        top: auto;
+        transform: none;
+        box-sizing: border-box;
+    }
+}
+
 .container{
     padding: 25px 35px;
     width: 400px;
@@ -80,28 +96,38 @@ body{
     animation: shake 0.5s;
     border: 1px solid red; 
 }
-.history{
+.feature-box{
     position: absolute;
     top: 50px;
     right: 50px;
     width: 250px;
     background: #f8f8ff;
-    border: 1px solid #bbb;
+    border: 5px solid #bbb;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
-.history h3{
+.feature-box h3{
 margin-top: 0;
 font-size: 18px;
 color: #333;
 }
-.history ul {
+.feature-box ul {
     padding-left: 18px;
     margin: 0;
 }
 
-.history li{
+.feature-box li{
     margin-bottom: 10px;
     font-size: 15px;
+}
+.history{
+    border: 2px solid black;
+    max-width: 500vw;
+    margin: 2%;
+    
+}
+.history-item{
+    border: 2px solid #333;
+    width: absolute;
 }

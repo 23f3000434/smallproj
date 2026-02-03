@@ -16,7 +16,7 @@
         
         <button onclick="checkfirsttime()">Generate QR code</button>
     </div>
-    <div class="history">
+    <div class="feature-box">
         <h3>Features I implemented in this project</h3>
         <ul>
             <li>Debounced API calls for performance</li>
@@ -25,8 +25,13 @@
             <li>Responsible and accessible UI</li>
         </ul>
     </div>
+    <div class="history">
+        <h3>history</h3>
 
+
+    </div>
 <script>
+        let historyArr = [];
         let imgbox = document.getElementById('imgbox');
         let inputtext = document.getElementById('qrtext');
         let qrimage = document.getElementById('qrimage');
@@ -44,6 +49,11 @@
         if(inputtext.value.length > 0) {
             qrimage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(inputtext.value);
             imgbox.classList.add('show-img');}
+
+            if(!historyArr.includes(inputtext.value)){
+                historyArr.push(inputtext.value);
+                updateHistory();
+            }
         else {
             inputtext.classList.add('error');
             setTimeout(() => {
@@ -63,6 +73,21 @@
                 func.apply(this,args);
             }, delay);
         };
+    }
+
+    function updateHistory() {
+        const historyDiv = document.querySelector('.history');
+        historyDiv.innerHTML = '<h3>history</h3>';
+    // Add each history item as a list with QR image
+    historyArr.slice().reverse().forEach(item => {
+        const qrSrc = "https://api.qrserver.com/v1/create-qr-code/?size=50x50&data=" + encodeURIComponent(item);
+        historyDiv.innerHTML += `
+            <div class="history-item">
+                <img src="${qrSrc}" alt="QR" width="absolute" height="absolute">
+                <span>${item}</span>
+            </div>
+        `;
+    });
     }
     
 </script>
