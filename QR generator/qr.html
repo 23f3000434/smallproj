@@ -75,20 +75,20 @@
         };
     }
 
-    function updateHistory() {
-        const historyDiv = document.querySelector('.history');
-        historyDiv.innerHTML = '<h3>history</h3>';
-    // Add each history item as a list with QR image
-    historyArr.slice().reverse().forEach(item => {
-        const qrSrc = "https://api.qrserver.com/v1/create-qr-code/?size=50x50&data=" + encodeURIComponent(item);
-        historyDiv.innerHTML += `
-            <div class="history-item">
-                <img src="${qrSrc}" alt="QR" width="absolute" height="absolute">
-                <span>${item}</span>
-            </div>
-        `;
-    });
-    }
+    // function updateHistory() {
+    //     const historyDiv = document.querySelector('.history');
+    //     historyDiv.innerHTML = '<h3>history</h3>';
+    // // Add each history item as a list with QR image
+    // historyArr.slice().reverse().forEach(item => {
+    //     const qrSrc = "https://api.qrserver.com/v1/create-qr-code/?size=50x50&data=" + encodeURIComponent(item);
+    //     historyDiv.innerHTML += `
+    //         <div class="history-item">
+    //             <img src="${qrSrc}" alt="QR" width="absolute" height="absolute">
+    //             <span>${item}</span>
+    //         </div>
+    //     `;
+    // });
+    // }
     
 </script>
 </body>
